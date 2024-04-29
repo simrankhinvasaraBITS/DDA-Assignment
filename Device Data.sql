@@ -1,0 +1,42 @@
+-- Create a new table
+CREATE TABLE DEVICES (
+    DEVICE_UID INT PRIMARY KEY AUTO_INCREMENT,
+    DEVICE_NAME VARCHAR(100),
+    DEVICE_MANUFACTURER VARCHAR(100),
+    DEVICE_SERIAL_NUMBER VARCHAR(100),
+    DEVICE_LST_MODIFY_DT TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    DEVICE_LST_MODIFY_BY VARCHAR(255),
+    DEVICE_CREATED_DT TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    DEVICE_CREATED_BY VARCHAR(255)
+);
+
+
+-- Insert data into the table  
+INSERT INTO DEVICES (DEVICE_NAME, DEVICE_MANUFACTURER, DEVICE_SERIAL_NUMBER, DEVICE_CREATED_BY)
+VALUES 
+    ('Device 1', 'Manufacturer X', '123456', 'admin'),
+    ('Device 2', 'Manufacturer Y', '789012', 'admin'),
+    ('Device 3', 'Manufacturer Z', '345678', 'admin'),
+    ('Device 4', 'Manufacturer X', '901234', 'admin'),
+    ('Device 5', 'Manufacturer Z', '567890', 'admin');
+
+
+-- Retrive data from the table based on conditions
+SELECT * FROM DEVICES;
+SELECT DEVICE_NAME, DEVICE_MANUFACTURER, DEVICE_SERIAL_NUMBER
+FROM DEVICES
+WHERE DEVICE_MANUFACTURER = 'Manufacturer X';
+
+-- Update data from the table 
+UPDATE DEVICES
+SET DEVICE_MANUFACTURER = 'Manufacturer XYZ'
+WHERE DEVICE_UID = 3;
+
+-- Delete data from the table 
+DELETE FROM DEVICES
+WHERE DEVICE_UID = 5;
+
+
+
+
+
